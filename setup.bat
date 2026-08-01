@@ -21,9 +21,7 @@ echo.
 :: ── 1. Check for Administrator rights ────────────────────────
 net session >nul 2>&1
 if %errorlevel% NEQ 0 (
-    echo  [INFO] Requesting administrator privileges...
-    powershell -Command "Start-Process cmd -ArgumentList '/c \"%~f0\"' -Verb RunAs"
-    exit /b
+    echo  [INFO] Running in user mode. (If installer downloads fail, re-run setup.bat as Administrator).
 )
 
 :: ── 2. Check / Install Node.js ────────────────────────────────
