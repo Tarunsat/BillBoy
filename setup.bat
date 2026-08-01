@@ -100,7 +100,11 @@ echo  [OK] npm dependencies installed.
 :: ── 6. Build Tauri desktop app ────────────────────────────────
 echo.
 echo  [STEP 5/5] Building BillBoy desktop app (this may take several minutes)...
-call npm run tauri build
+if not exist "%SCRIPT_DIR%\src-tauri" (
+    echo  [INFO] Initializing Tauri configuration...
+    call npx tauri init --app-name BillBoy --window-title BillBoy --dist-dir ../dist --dev-url http://localhost:5173 --before-dev-command "npm run dev" --before-build-command "npm run build" --ci
+)
+call npx tauri build
 if %errorlevel% NEQ 0 (
     echo  [ERROR] Tauri build failed. See output above for details.
     pause
