@@ -58,7 +58,8 @@ if %errorlevel% NEQ 0 (
     )
     echo  [OK] Rust installed successfully.
 ) else (
-    for /f "delims=" %%v in ('cargo --version') do echo  [OK] Rust %%v already installed.
+    call rustup default stable >nul 2>&1
+    for /f "delims=" %%v in ('cargo --version') do echo  [OK] Rust %%v ready.
 )
 set "PATH=%USERPROFILE%\.cargo\bin;%PATH%"
 
