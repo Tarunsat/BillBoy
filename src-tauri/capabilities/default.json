@@ -7,6 +7,18 @@
   ],
   "permissions": [
     "core:default",
-    "sql:default"
+    "sql:default",
+    {
+      "identifier": "sql:allow-load",
+      "allow": [{ "db": "sqlite:biller.db" }]
+    },
+    {
+      "identifier": "sql:allow-execute",
+      "allow": [{ "db": "sqlite:biller.db" }]
+    },
+    {
+      "identifier": "sql:allow-select",
+      "allow": [{ "db": "sqlite:biller.db" }]
+    }
   ]
 }
