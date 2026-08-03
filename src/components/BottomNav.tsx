@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom';
-import { FileEdit, Receipt, History, Settings } from 'lucide-react';
+import { FileEdit, Receipt, History, Settings, Layers } from 'lucide-react';
 
 const tabs = [
   { path: '/', label: 'Entry', icon: FileEdit },
   { path: '/bill', label: 'Bill', icon: Receipt },
   { path: '/history', label: 'History', icon: History },
+  { path: '/cumulative', label: 'Bulk', icon: Layers },
   { path: '/config', label: 'Config', icon: Settings },
 ];
 

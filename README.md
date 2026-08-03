@@ -1,6 +1,15 @@
-# Offline Billing App
+# BillBoy - Offline Billing App
 
 A cross-platform offline billing application built with React, Tauri, and Capacitor. It uses a single shared codebase and local SQLite database for completely offline functionality on Windows, macOS, Linux, Android, and iOS.
+
+## Features
+- **Completely Offline**: Uses local SQLite for all data storage.
+- **Cross-Platform**: Works natively on Desktop (Tauri) and Mobile (Capacitor).
+- **Fast Entry**: Quick input fields with auto-populating defaults for rapid bill generation.
+- **Dynamic Math**: Automatically calculates luggage charges, commissions, and labor (coolie) fees.
+- **Cumulative (Bulk) Billing**: Generate aggregated bills for specific customers across custom date ranges.
+- **Print Ready**: Formatted bill documents ready for direct thermal or standard printing.
+- **Configurable**: Easily update shop name, default customers, and commission percentages.
 
 ## Setup Instructions
 
@@ -27,11 +36,15 @@ A cross-platform offline billing application built with React, Tauri, and Capaci
    - Desktop (Tauri): `npm run tauri dev`
 
 5. **Build for all platforms**
-   Run the included build script:
-   ```bash
-   chmod +x build.sh
-   ./build.sh
-   ```
+   - **macOS/Linux**: Run the included bash script:
+     ```bash
+     chmod +x build.sh
+     ./build.sh
+     ```
+   - **Windows**: Run the included batch file:
+     ```cmd
+     .\build.bat
+     ```
 
 ## Stack
 - React + TypeScript + Vite
@@ -39,4 +52,3 @@ A cross-platform offline billing application built with React, Tauri, and Capaci
 - Tauri v2 (Desktop wrapper)
 - Capacitor v6 (Mobile wrapper)
 - SQLite (`@tauri-apps/plugin-sql` and `@capacitor-community/sqlite`)
-# BillBoy

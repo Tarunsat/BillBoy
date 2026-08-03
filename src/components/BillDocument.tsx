@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 import type { Bill, BillItem, ConfigData } from '../types';
+import { formatDate } from '../utils';
 
 interface Props {
   bill: Bill;
@@ -53,7 +54,7 @@ export const BillDocument = forwardRef<HTMLDivElement, Props>(({ bill, items, co
         <tbody>
           {items.map((item, i) => (
             <tr key={i} className="border-b border-gray-200">
-              <td className="py-1">{bill.date}</td>
+              <td className="py-1">{formatDate(item.date || bill.date)}</td>
               <td className="py-1">{item.item_name}</td>
               <td className="py-1 text-right">{item.qty.toFixed(2)}</td>
               <td className="py-1 text-right">{item.price.toFixed(2)}</td>

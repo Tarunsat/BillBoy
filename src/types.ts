@@ -14,6 +14,7 @@ export interface ConfigData {
 export interface BillItem {
   id?: number;
   bill_id?: number;
+  date?: string; // For cumulative bills
   item_name: string;
   qty: number;
   price: number;

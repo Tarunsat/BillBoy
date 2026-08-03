@@ -21,14 +21,16 @@ export function EntryPage() {
   const [qty, setQty] = useState<number | ''>('');
   const [price, setPrice] = useState<number | ''>('');
   const [luggage, setLuggage] = useState<number | ''>('');
+  const [isInitialized, setIsInitialized] = useState(false);
 
   React.useEffect(() => {
-    if (!loading) {
-      if (!customerName) setCustomerName(config.defaultCustomer);
-      if (!customerGroup) setCustomerGroup(config.defaultGroup);
-      if (!itemName) setItemName(config.defaultItemName);
+    if (!loading && !isInitialized) {
+      setCustomerName(config.defaultCustomer);
+      setCustomerGroup(config.defaultGroup);
+      setItemName(config.defaultItemName);
+      setIsInitialized(true);
     }
-  }, [loading, config, customerName, customerGroup, itemName]);
+  }, [loading, config, isInitialized]);
 
   const handleAddItem = (e: React.FormEvent) => {
     e.preventDefault();

@@ -5,6 +5,7 @@ import { BottomNav } from './components/BottomNav';
 import { EntryPage } from './pages/EntryPage';
 import { BillPage } from './pages/BillPage';
 import { HistoryPage } from './pages/HistoryPage';
+import { CumulativePage } from './pages/CumulativePage';
 import { ConfigPage } from './pages/ConfigPage';
 import { initDB } from './db';
 
@@ -38,6 +39,7 @@ function App() {
             <Route path="/" element={<EntryPage />} />
             <Route path="/bill" element={<BillPage />} />
             <Route path="/history" element={<HistoryPage />} />
+            <Route path="/cumulative" element={<CumulativePage />} />
             <Route path="/config" element={<ConfigPage />} />
           </Routes>
         </main>

@@ -3,7 +3,7 @@ import type { Bill, BillItem, ConfigData } from './types';
 export function calcBillTotals(items: BillItem[], config: ConfigData, bill: Partial<Bill>) {
   const totalQty = items.reduce((sum, item) => sum + item.qty, 0);
   const totalAmount = items.reduce((sum, item) => sum + item.total, 0);
-  const totalLuggage = items.reduce((sum, item) => sum + item.luggage, 0);
+  const totalLuggage = items.reduce((sum, item) => sum + (item.luggage * item.qty), 0);
   
   const commission = totalAmount * (config.commissionPct / 100);
   const coolie = items.length * config.cooliePerEntry;
@@ -23,4 +23,13 @@ export function calcBillTotals(items: BillItem[], config: ConfigData, bill: Part
     netAmount,
     netPayable
   };
+}
+
+export function formatDate(dateString: string): string {
+  if (!dateString) return '';
+  const parts = dateString.split('-');
+  if (parts.length === 3) {
+    return `${parts[2]}-${parts[1]}-${parts[0]}`;
+  }
+  return dateString;
 }

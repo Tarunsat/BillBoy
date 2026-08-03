@@ -4,7 +4,7 @@ import { useReactToPrint } from 'react-to-print';
 import { useConfig } from '../hooks/useConfig';
 import { useDB } from '../hooks/useDB';
 import type { Bill, BillItem } from '../types';
-import { calcBillTotals } from '../utils';
+import { calcBillTotals, formatDate } from '../utils';
 import { BillDocument } from '../components/BillDocument';
 import { Printer } from 'lucide-react';
 
@@ -80,7 +80,7 @@ export function BillPage() {
           <select value={selectedBill.id || ''} onChange={handleBillSelect} className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-saffron outline-none">
             {bills.map(b => (
               <option key={b.id} value={b.id}>
-                {b.date} - {b.customer_name}
+                {formatDate(b.date)} - {b.customer_name}
               </option>
             ))}
           </select>
